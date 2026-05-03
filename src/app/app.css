@@ -1,6 +1,14 @@
 /* app.css - Premium Compact Single Viewport Layout */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
+html, body {
+  height: 100%;
+  max-height: 100vh;
+  overflow: hidden !important;
+  margin: 0;
+  padding: 0;
+}
+
 :host {
   --bg-dark: #070913;
   --surface-dark: rgba(16, 18, 35, 0.45);
@@ -858,6 +866,29 @@
     max-height: initial;
     overflow-y: visible;
   }
+  .mobile-menu-toggle-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    z-index: 101;
+    transition: background 0.3s ease;
+  }
+  .mobile-menu-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
+  .side-nav-menu.mobile-hidden {
+    display: none !important;
+  }
 }
 
 /* Keyframes */
@@ -880,4 +911,9 @@
   0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
   70% { box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); }
   100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }

@@ -114,8 +114,35 @@ export class App implements OnInit {
   emailBody: string = '';
   emailSent = signal<boolean>(false);
 
+  isSearching = signal<boolean>(false);
+  searchQuery = signal<string>('');
+  isMobileMenuOpen = signal<boolean>(true);
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen.update(v => !v);
+  }
+
   setPreview(platform: string) {
     this.activePreview.set(platform);
+    if (platform === 'website') {
+      this.isSearching.set(true);
+      this.searchQuery.set('');
+      setTimeout(() => {
+        const target = 'coviisoft.com';
+        let i = 0;
+        const typeInterval = setInterval(() => {
+          if (i < target.length) {
+            this.searchQuery.update(q => q + target.charAt(i));
+            i++;
+          } else {
+            clearInterval(typeInterval);
+            setTimeout(() => {
+              this.isSearching.set(false);
+            }, 1800);
+          }
+        }, 85);
+      }, 300);
+    }
   }
 
   toggleFollow() {
