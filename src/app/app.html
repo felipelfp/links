@@ -1,344 +1,436 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="links-bg-glow"></div>
+<div class="links-bg-image">
+  <img src="/IMG-20260502-WA0001.jpg" style="width:100%; height:100%; object-fit:cover;">
+</div>
 
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
+<div class="links-main-wrapper">
+  <!-- Left Side: Brand & Links menu -->
+  <div class="links-left-col">
+    <header class="brand-header">
+      <div class="brand-logo-container">
+        <div class="brand-logo" style="background: transparent; cursor: pointer;" (click)="openLogoModal()">
+          <img src="/IMG-20260502-WA0001.jpg" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%; display: block;">
+        </div>
+        <div class="brand-badge"></div>
+      </div>
+      <h1 class="brand-title">covii.soft - Soluções Digitais</h1>
+      <p class="brand-subtitle" style="margin-bottom: 0.5rem;">🎨 Design de Alta Performance • Criação de Websites • Marcas</p>
+      <a href="mailto:covii@coviisoft.com" style="color: var(--text-secondary); font-size: 0.85rem; text-decoration: none; margin-top: 0.25rem; display: inline-block;">🌐 Acesse nossa página oficial e acompanhe nossos projetos</a>
+    </header>
 
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
+    <div class="side-nav-menu">
+      <!-- Instagram Link -->
+      <button class="menu-item insta-item" [class.active]="activePreview() === 'instagram'" (click)="setPreview('instagram')">
+        <span class="menu-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </span>
+        <div class="menu-text">
+          <h3>Instagram</h3>
+          <p>Novidades e Portfólio</p>
+        </div>
+      </button>
 
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+      <!-- Facebook Link -->
+      <button class="menu-item fb-item" [class.active]="activePreview() === 'facebook'" (click)="setPreview('facebook')">
+        <span class="menu-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.324-1.325z"/></svg>
+        </span>
+        <div class="menu-text">
+          <h3>Facebook</h3>
+          <p>Posts e Avaliações</p>
+        </div>
+      </button>
 
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+      <!-- WhatsApp Link -->
+      <button class="menu-item wa-item" [class.active]="activePreview() === 'whatsapp'" (click)="setPreview('whatsapp')">
+        <span class="menu-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.178 0 6.164 1.238 8.411 3.483 2.245 2.245 3.481 5.231 3.481 8.411 0 6.557-5.332 11.888-11.888 11.888-2.008 0-3.98-.509-5.731-1.472l-6.26 1.687zm6.216-3.82c1.455.864 3.126 1.321 4.836 1.322 5.352 0 9.712-4.36 9.712-9.711 0-2.595-1.01-5.035-2.844-6.869-1.833-1.834-4.274-2.845-6.868-2.845-5.352 0-9.712 4.36-9.712 9.712 0 1.8.497 3.559 1.439 5.093l-1.066 3.89 3.993-1.077zm11.758-11.139c-.297-.149-1.758-.867-2.031-.966-.272-.099-.47-.149-.668.149-.199.299-.768.966-.941 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.199 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+        </span>
+        <div class="menu-text">
+          <h3>WhatsApp</h3>
+          <p>Suporte em tempo real</p>
+        </div>
+      </button>
 
-    --pill-accent: var(--bright-blue);
+      <!-- Email Link -->
+      <button class="menu-item mail-item" [class.active]="activePreview() === 'email'" (click)="setPreview('email')">
+        <span class="menu-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+        </span>
+        <div class="menu-text">
+          <h3>E-mail</h3>
+          <p>Dúvidas e Parcerias</p>
+        </div>
+      </button>
 
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: block;
-    height: 100dvh;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+      <!-- Website Link -->
+      <button class="menu-item ws-item" [class.active]="activePreview() === 'website'" (click)="setPreview('website')">
+        <span class="menu-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 1.15c4.717.514 8.528 4.204 9.193 8.85h-3.415c-.452-2.915-2.029-5.46-4.321-7.143 1.112.569 1.83 1.678 2.11 2.923zm-11-8.85c2.292 1.683 3.869 4.228 4.321 7.143h-3.415c.665-4.646 4.476-8.336 9.193-8.85h-1.111zm-1.218 10.85h-4.673c-.156-.63-.251-1.284-.287-1.954h4.945c.005.151.01.302.015.454.004-.152.009-.303.015-.454zm12.38 3.238c-.375-1.928-1.396-3.64-2.825-4.904h5.45c-.297.801-.734 1.542-1.28 2.215zm-.38-4.188c0 .151-.005.302-.015.454h-4.945c.036-.67.131-1.324.287-1.954h4.673zm-6.282-4.188c1.429 1.264 2.45 2.976 2.825 4.904h-5.45c.297-.801.734-1.542 1.28-2.215zm-2.825 4.904c-.375 1.928-1.396 3.64-2.825 4.904h-5.45c.297-.801.734-1.542 1.28-2.215z"/></svg>
+        </span>
+        <div class="menu-text">
+          <h3>Site Covii</h3>
+          <p>Ecossistema Oficial</p>
+        </div>
+      </button>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
+  </div>
+
+  <!-- Right Side: The Preview window (Everything in one place without scrolling) -->
+  <div class="links-right-col" [style.--active-color]="
+      activePreview() === 'instagram' ? 'var(--instagram)' : 
+      activePreview() === 'facebook' ? 'var(--facebook)' : 
+      activePreview() === 'whatsapp' ? 'var(--whatsapp)' : 
+      activePreview() === 'email' ? 'var(--email)' : 'var(--website)'">
+    
+    <!-- Welcome or Selection screen -->
+    @if (activePreview() === 'all') {
+      <div class="preview-welcome">
+        <div class="welcome-emoji">👋</div>
+        <h2 class="welcome-title">Bem-vindo(a) à Covii</h2>
+        <p class="welcome-desc">Selecione uma das opções no menu lateral para visualizar e interagir com o conteúdo instantaneamente em uma só tela!</p>
+      </div>
+    }
+
+    <!-- Instagram Preview -->
+    @if (activePreview() === 'instagram') {
+      <div class="preview-header" style="margin-bottom: 0.75rem;">
+        <div class="preview-brand">
+          <div class="preview-avatar">📸</div>
+          <div>
+            <h3 class="preview-title">Instagram Oficial</h3>
+            <span class="preview-badge">Em tempo real</span>
+          </div>
+        </div>
+        <a href="https://www.instagram.com/covii.soft/" target="_blank" class="card-action-btn" style="padding: 0.45rem 0.85rem; font-size: 0.85rem; text-decoration: none;">
+          Abrir Página ↗
+        </a>
+      </div>
+
+      <div class="ws-browser" style="height: 480px; overflow: hidden; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); background: #000;">
+        <iframe src="https://www.instagram.com/covii.soft/embed" style="width: 100%; height: 100%; border: none;" allowtransparency="true" allowfullscreen="true" scrolling="yes"></iframe>
+      </div>
+    }
+
+    <!-- Facebook Preview -->
+    @if (activePreview() === 'facebook') {
+      <div class="preview-header">
+        <div class="preview-brand">
+          <div class="preview-avatar">📘</div>
+          <div>
+            <h3 class="preview-title">Facebook</h3>
+            <span class="preview-badge">Página do Facebook</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-banner">Página Covii Oficial</div>
+
+      <div class="fb-post-item">
+        <div class="fb-post-header">
+          <div class="fb-post-avatar">C</div>
+          <div>
+            <div class="fb-post-name">Covii</div>
+            <div class="fb-post-time">2 horas atrás • 🌍</div>
+          </div>
+        </div>
+        <p class="fb-post-content">
+          Confira o novo hub integrado da Covii para melhorar sua experiência conosco!
+        </p>
+      </div>
+
+      <div class="fb-post-item">
+        <div class="fb-post-header">
+          <div class="fb-post-avatar">C</div>
+          <div>
+            <div class="fb-post-name">Covii</div>
+            <div class="fb-post-time">1 dia atrás • 🌍</div>
+          </div>
+        </div>
+        <p class="fb-post-content">
+          Uma identidade visual única traz resultados reais para sua marca. Entre em contato!
+        </p>
+      </div>
+    }
+
+    <!-- WhatsApp Preview -->
+    @if (activePreview() === 'whatsapp') {
+      <div class="preview-header">
+        <div class="preview-brand">
+          <div class="preview-avatar">💬</div>
+          <div>
+            <h3 class="preview-title">WhatsApp</h3>
+            <span class="preview-badge">Suporte Imediato</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wa-chat-box">
+        <div class="wa-messages-area">
+          <div class="wa-msg-bubble received">
+            Olá! Obrigado por entrar em contato com a Covii. Em que podemos te ajudar?
+          </div>
+          @if (waMessage) {
+            <div class="wa-msg-bubble sent">
+              {{ waMessage }}
+            </div>
+          }
+        </div>
+
+        <div class="wa-input-row">
+          <input type="text" class="wa-input" placeholder="Escreva aqui..." [(ngModel)]="waMessage" (keyup.enter)="openWhatsApp()">
+          <button class="card-action-btn" (click)="openWhatsApp()">Enviar</button>
+        </div>
+      </div>
+    }
+
+    <!-- Email Preview -->
+    @if (activePreview() === 'email') {
+      <div class="preview-header">
+        <div class="preview-brand">
+          <div class="preview-avatar">📧</div>
+          <div>
+            <h3 class="preview-title">E-mail</h3>
+            <span class="preview-badge">Dúvidas ou Propostas</span>
+          </div>
+        </div>
+      </div>
+
+      @if (emailSent()) {
+        <div class="email-success-alert">
+          <span>✔️</span> Sua mensagem foi enviada com sucesso!
+        </div>
+      } @else {
+        <div class="email-box">
+          <div class="form-group">
+            <label class="form-label">Assunto</label>
+            <input type="text" class="form-input" placeholder="Ex: Solicitação de Orçamento" [(ngModel)]="emailSubject">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensagem</label>
+            <textarea class="form-textarea" rows="2" placeholder="Escreva aqui os detalhes..." [(ngModel)]="emailBody"></textarea>
+          </div>
+          <button class="card-action-btn" (click)="sendEmailForm()">Enviar E-mail</button>
+        </div>
+      }
+    }
+
+    <!-- Website Preview -->
+    @if (activePreview() === 'website') {
+      <div class="preview-header">
+        <div class="preview-brand">
+          <div class="preview-avatar">🌐</div>
+          <div>
+            <h3 class="preview-title">Amostra do Site</h3>
+            <span class="preview-badge">Site Oficial</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ws-browser">
+        <div class="ws-browser-header">
+          <div class="browser-dot"></div>
+          <div class="browser-dot"></div>
+          <div class="browser-dot"></div>
+          <div class="ws-browser-url">www.covii.com.br</div>
+        </div>
+        <div class="ws-content">
+          <div class="ws-hero">
+            <h4 class="ws-title">Covii Soluções Digitais</h4>
+            <p class="ws-desc">Construímos produtos digitais de primeira classe para o seu negócio.</p>
+          </div>
+
+          <div class="ws-services-grid">
+            <div class="ws-service-item">
+              <div class="ws-service-icon">🖥️</div>
+              <h5 class="ws-service-title">Criação de Sites</h5>
+              <p class="ws-service-desc">Sites otimizados e modernos.</p>
+            </div>
+            <div class="ws-service-item">
+              <div class="ws-service-icon">📊</div>
+              <h5 class="ws-service-title">Consultoria</h5>
+              <p class="ws-service-desc">Alavanque sua marca no mercado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<router-outlet />
+
+@if (isLogoModalOpen()) {
+  <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center; z-index: 10000; backdrop-filter: blur(8px);" (click)="closeLogoModal()">
+    <div style="position: relative; max-width: 90vw; max-height: 90vh; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 40px rgba(0,0,0,0.5);" (click)="$event.stopPropagation()">
+      <button style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; color: #fff; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;" (click)="closeLogoModal()">✕</button>
+      <img src="/IMG-20260502-WA0001.jpg" style="max-width: 100%; max-height: 80vh; display: block; object-fit: contain;">
+    </div>
+  </div>
+}
+
+<!-- Support Chat Floating Assistant -->
+<div style="position: fixed; bottom: 25px; right: 25px; z-index: 999; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; font-family: sans-serif;">
+  @if (isChatOpen()) {
+    <div style="position: absolute; bottom: 84px; right: 0; width: 380px; maxWidth: calc(100vw - 64px); height: 520px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); borderRadius: 24px; border: 1px solid rgba(255, 255, 255, 0.08); boxShadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); display: flex; flexDirection: column; overflow: hidden; animation: fadeInUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
+      
+      <!-- Header -->
+      <div style="padding: 16px 20px; background: rgba(30, 41, 59, 0.6); borderBottom: 1px solid rgba(255, 255, 255, 0.05); display: flex; alignItems: center; gap: 12px; justify-content: space-between;">
+        <div style="display: flex; alignItems: center; gap: 12px;">
+          <div style="width: 40px; height: 40px; borderRadius: 50%; background: rgba(99, 102, 241, 0.15); color: #818cf8; display: flex; alignItems: center; justifyContent: center; border: 1px solid rgba(99, 102, 241, 0.2);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="10" x="3" y="11" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" x2="8" y1="16" y2="16"/><line x1="16" x2="16" y1="16" y2="16"/></svg>
+          </div>
+          <div>
+            <h4 style="color: white; margin: 0; fontSize: 1rem; fontWeight: 700; line-height: 1.2;">Nexus AI</h4>
+            <p style="color: #22c55e; margin: 0; fontSize: 0.75rem; display: flex; alignItems: center; gap: 4px;">
+              <span style="width: 6px; height: 6px; background: #22c55e; borderRadius: 50%; display: inline-block;"></span>
+              Online — Pronto para ajudar
+            </p>
+          </div>
+        </div>
+        <button style="background: none; border: none; color: rgba(255, 255, 255, 0.5); fontSize: 1.15rem; cursor: pointer;" (click)="toggleChat()">✕</button>
+      </div>
+
+      <!-- Chat Messages body -->
+      <div style="flex: 1; padding: 20px; overflowY: auto; display: flex; flexDirection: column; gap: 16px; background: rgba(0, 0, 0, 0.15);" id="chat-scroller">
+        @for (msg of chatMessages(); track $index) {
+          <div [style.align-self]="msg.sender === 'user' ? 'flex-end' : 'flex-start'"
+               [style.background]="msg.sender === 'user' ? '#4f46e5' : 'rgba(30, 41, 59, 0.8)'"
+               style="max-width: 85%; color: white; padding: 12px 16px; borderRadius: 12px; fontSize: 0.875rem; line-height: 1.5; border: 1px solid rgba(255, 255, 255, 0.04); boxShadow: 0 4px 10px rgba(0,0,0,0.15);">
+            {{ msg.text }}
+            <div style="fontSize: 0.65rem; color: rgba(255, 255, 255, 0.4); marginTop: 4px; textAlign: right;">{{ msg.time }}</div>
+          </div>
+        }
+
+        <!-- Step 0: Options -->
+        @if (chatStep() === 0) {
+          <div style="display: flex; flexDirection: column; gap: 8px; marginTop: 8px;">
+            @for (opt of ['Como a Covii.soft pode nos ajudar?', 'Quero Automatizar Processos', 'Criar Chatbots Inteligentes', 'Desenvolvimento de Softwares']; track opt) {
+              <button (click)="selectChatOption(opt)" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); color: #94a3b8; padding: 10px 14px; borderRadius: 12px; fontSize: 0.8rem; textAlign: left; cursor: pointer; transition: all 0.2s;" class="nexus-option-btn">
+                {{ opt }}
+              </button>
+            }
+          </div>
+        }
+
+        <!-- Step 1: Form -->
+        @if (chatStep() === 1) {
+          <form (submit)="sendChatForm()" style="display: flex; flexDirection: column; gap: 12px; marginTop: 8px;">
+            <div>
+              <label style="fontSize: 0.75rem; color: #94a3b8; display: block; marginBottom: 4px;">Seu Nome</label>
+              <input type="text" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" required placeholder="Ex: Carlos Silva" style="width: 100%; padding: 10px 14px; borderRadius: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); color: white; fontSize: 0.85rem; outline: none;">
+            </div>
+            <div>
+              <label style="fontSize: 0.75rem; color: #94a3b8; display: block; marginBottom: 4px;">Nome da Empresa</label>
+              <input type="text" [(ngModel)]="userCompany" [ngModelOptions]="{standalone: true}" required placeholder="Ex: Minha Empresa Ltda" style="width: 100%; padding: 10px 14px; borderRadius: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); color: white; fontSize: 0.85rem; outline: none;">
+            </div>
+            <button type="submit" style="background: #4f46e5; border: none; color: white; padding: 12px; borderRadius: 12px; fontWeight: 600; fontSize: 0.85rem; cursor: pointer; marginTop: 4px; transition: all 0.2s;">
+              Continuar
+            </button>
+          </form>
+        }
+
+        <!-- Step 2: WhatsApp Link -->
+        @if (chatStep() === 2) {
+          <a [href]="getWhatsAppLink()" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; textDecoration: none; padding: 14px 18px; borderRadius: 14px; fontWeight: 700; fontSize: 0.9rem; display: flex; alignItems: center; justifyContent: center; gap: 8px; marginTop: 12px; boxShadow: 0 8px 32px rgba(34, 197, 94, 0.45); textTransform: uppercase; letterSpacing: 0.5px; transition: all 0.2s;">
+            Iniciar Proposta no WhatsApp ➔
           </a>
         }
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
-      </div>
+
+      <!-- Footer Message Input -->
+      @if (chatStep() !== 2) {
+        <div style="padding: 12px 16px; borderTop: 1px solid rgba(255, 255, 255, 0.05); display: flex; gap: 8px; background: rgba(15, 23, 42, 0.4);">
+          <input type="text" [(ngModel)]="chatMessage" [ngModelOptions]="{standalone: true}" (keyup.enter)="sendChatMessage()" placeholder="Escreva sua pergunta..." style="flex: 1; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); color: white; padding: 10px 14px; borderRadius: 12px; fontSize: 0.85rem; outline: none;">
+          <button (click)="sendChatMessage()" style="width: 40px; height: 40px; borderRadius: 12px; background: #4f46e5; border: none; color: white; display: flex; alignItems: center; justifyContent: center; cursor: pointer; transition: all 0.2s;">
+            ➔
+          </button>
+        </div>
+      }
+
     </div>
+  }
+
+  <!-- Floating avatar bubble chat toggle button -->
+  <style>
+    @keyframes slideUpFade {
+      0% { transform: translateY(100px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes bubbleFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes nexusEntrance {
+      0% {
+        transform: translate(calc(-100vw + 200px), calc(-100vh + 180px)) scale(0.4) rotate(0deg);
+        opacity: 0;
+      }
+      35% {
+        transform: translate(calc(-50vw + 100px), calc(-50vh + 90px)) scale(1.4) rotate(0deg);
+        opacity: 1;
+      }
+      75% {
+        transform: translate(calc(-50vw + 100px), calc(-50vh + 90px)) scale(1.4) rotate(720deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(0px, 0px) scale(1) rotate(0deg);
+        opacity: 1;
+      }
+    }
+    .chat-bubble-animate {
+      animation: nexusEntrance 5.5s ease-in-out forwards;
+    }
+    @keyframes nexusWave {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-22deg); }
+    }
+  </style>
+
+  <div style="position: relative;">
+    @if (!isChatOpen() && isIntroDone() && showBubble()) {
+      <div style="position: absolute; right: 168px; bottom: 52px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 14px; padding: 12px 20px; white-space: nowrap; color: white; font-size: 1.3rem; font-weight: 700; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6); pointer-events: none; z-index: 15; animation: fadeIn 0.4s ease-in-out;">
+        Precisa de ajuda? Estou aqui! 🤖
+        <div style="position: absolute; right: -6px; top: calc(50% - 6px); width: 12px; height: 12px; background: rgba(15, 23, 42, 0.95); border-right: 1px solid rgba(99, 102, 241, 0.3); border-bottom: 1px solid rgba(99, 102, 241, 0.3); transform: rotate(-45deg);"></div>
+      </div>
+    }
+
+    <button (click)="toggleChat()" 
+            [class.chat-bubble-animate]="!isIntroDone()" 
+            [style.transform]="isChatOpen() ? 'translate(-410px, -220px)' : 'none'" 
+            style="width: 164px; height: 164px; border-radius: 50%; background: none; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; color: white; position: relative; transition: transform 0.5s ease-in-out;">
+      @if (!isChatOpen()) {
+        <div style="position: absolute; top: 25px; right: 25px; width: 14px; height: 14px; background: #ef4444; border-radius: 50%; border: 2px solid rgba(15, 23, 42, 0.95); box-shadow: 0 0 12px #ef4444; z-index: 11; pointer-events: none;"></div>
+      }
+      <div style="position: relative; width: 100%; height: 100%; fill: none; display: flex; align-items: center; justify-content: center;">
+        <svg width="128" height="128" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="nexusGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#818cf8" />
+              <stop offset="100%" stopColor="#4f46e5" />
+            </radialGradient>
+            <linearGradient id="orbitGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#6366f1" />
+              <stop offset="100%" stopColor="#a855f7" />
+            </linearGradient>
+          </defs>
+          <path d="M50 32C41.1634 32 34 39.1634 34 48C34 53.6442 36.9324 58.6019 41.3653 61.4142L41 71H59L58.6347 61.4142C63.0676 58.6019 66 53.6442 66 48C66 39.1634 58.8366 32 50 32Z" fill="url(#nexusGlow)" />
+          <circle cx="43" cy="46" r="3" fill="white" />
+          <circle cx="57" cy="46" r="3" fill="white" />
+          <path d="M44 54H56" stroke="white" strokeWidth="2" strokeLinecap="round" />
+          <g style="transform-origin: 70px 65px; animation: nexusWave 1.8s infinite ease-in-out">
+            <circle cx="70" cy="65" r="3" fill="#6366f1" />
+            <path d="M 70 65 Q 82 50 86 54 Q 84 62 70 65" fill="#818cf8" stroke="white" strokeWidth="1.5" />
+            <path d="M 85 45 L 89 42" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M 88 52 L 93 51" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+          </g>
+          <circle cx="50" cy="22" r="3.5" fill="#a855f7" />
+          <circle cx="22" cy="50" r="3.5" fill="#6366f1" />
+        </svg>
+      </div>
+    </button>
   </div>
-</main>
+</div>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
