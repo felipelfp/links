@@ -411,17 +411,22 @@
       transform: translateY(-460px) scale(0.6) !important;
     }
     .nexus-chat-speech-bubble {
-      right: 114px;
-      bottom: 30px;
+      right: 0px !important;
+      bottom: 124px !important;
       padding: 10px 16px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       border-radius: 12px;
-      white-space: normal;
-      max-width: 150px;
+      white-space: nowrap;
+      max-width: calc(100vw - 24px);
       text-align: center;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
     }
     .nexus-chat-speech-bubble div {
-      display: none !important;
+      display: block !important;
+      right: 42px !important;
+      top: auto !important;
+      bottom: -6px !important;
+      transform: rotate(45deg) !important;
     }
     .nexus-avatar-button svg {
       width: 84px !important;
